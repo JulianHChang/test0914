@@ -1,4 +1,4 @@
-**Chapter 14. Odds 'n' Ends**
+Chapter 14. Odds 'n' Ends
 
 This chapter contains queries that didn't fit in any other chapter,
 either because the chapter they would belong to is already long enough,
@@ -7,7 +7,7 @@ chapter is meant to be a "fun" chapter, in that the recipes here may or
 may not be recipes that you would actually use; nevertheless, the
 queries are interesting, and we wanted to include them in this book.
 
-**14.1 Creating Cross-Tab Reports Using SQL Server's PIVOT Operator**
+14.1 Creating Cross-Tab Reports Using SQL Server's PIVOT Operator
 
 **Problem**
 
@@ -161,8 +161,7 @@ As you can see, PIVOT provides an interesting spin on pivoting result
 sets. Regardless of whether you prefer using it to the traditional
 methods of pivoting, it's nice to have another tool in your toolbox.
 
-**14.2 Unpivoting a Cross-Tab Report Using SQL Server's UNPIVOT
-Operator**
+14.2 Unpivoting a Cross-Tab Report Using SQL Server's UNPIVOT Operator
 
 **Problem**
 
@@ -306,7 +305,7 @@ SALES 6
 
 OPERATIONS 0
 
-**14.3 Transposing a Result Set Using Oracle's MODEL Clause**
+14.3 Transposing a Result Set Using Oracle's MODEL Clause
 
 **Problem**
 
@@ -601,7 +600,7 @@ D10 D20 D30
 
 3 5 6
 
-**14.4 Extracting Elements of a String from Unfixed Locations**
+14.4 Extracting Elements of a String from Unfixed Locations
 
 **Problem**
 
@@ -640,7 +639,7 @@ non_marked unit withabanana?
 
 Despite not knowing the exact locations within the string of the
 interesting values, you do know that they are located between square
-brackets \[\], and you know there are three of them. Use Oracle's
+brackets \[\], and you know there are three of them. Use Oracle's
 built-in function INSTR to find the locations of the brackets. Use the
 built-in function SUBSTR to extract the values from the string. View V
 will contain the strings to parse and is defined as follows (its use is
@@ -817,8 +816,8 @@ At this point it should be clear: to ensure you include neither of the
 square brackets, you must add one to the beginning index and subtract
 one from the ending index.
 
-**14.5 Finding the Number of Days in a Year (an Alternate Solution for
-Oracle)**
+14.5 Finding the Number of Days in a Year (an Alternate Solution for
+Oracle)
 
 **Problem**
 
@@ -827,8 +826,8 @@ You want to find the number of days in a year.
 **Tip**
 
 This recipe presents an alternative solution to "Determining the Number
-of Days in a Year" from
-[[Chapter 9]{.underline}](mhtml:file://C:\Users\Buff%20Panda\OneDrive\Documents\SQL%20code\experrt%20tsql-windows-2019\14.%20Odds%20’n’%20Ends%20_%20SQL%20Cookbook,%202nd%20Edition.mhtml!https://learning.oreilly.com/library/view/sql-cookbook-2nd/9781492077435/ch09.html#sqlckbk-CHP-9).
+of Days in a Year"
+from [**[Chapter 9]{.underline}**](https://learning.oreilly.com/library/view/sql-cookbook-2nd/9781492077435/ch09.html#sqlckbk-CHP-9).
 This solution is specific to Oracle.
 
 **Solution**
@@ -921,7 +920,7 @@ NUM
 
 366
 
-**14.6 Searching for Mixed Alphanumeric Strings**
+14.6 Searching for Mixed Alphanumeric Strings
 
 **Problem**
 
@@ -948,7 +947,7 @@ findRow 55
 threes
 
 The final result set should contain only those rows that have both
-letters and numbers:
+letters and numbers:
 
 STRINGS
 
@@ -1014,7 +1013,7 @@ simply create a view.
 The TRANSLATE function makes this problem extremely easy to solve. The
 first step is to use TRANSLATE to identify all letters and all digits by
 pound (#) and asterisk (\*) characters, respectively. The intermediate
-results (from inline view X) are as follows:
+results (from inline view X) are as follows:
 
 **with v as (**
 
@@ -1113,7 +1112,7 @@ STRINGS TRANSLATED
 
 findRow 55 ####R## \*\*
 
-**14.7 Converting Whole Numbers to Binary Using Oracle**
+14.7 Converting Whole Numbers to Binary Using Oracle
 
 **Problem**
 
@@ -1210,8 +1209,8 @@ input, processes it, and returns a value, much like a function would):
 
 We mentioned in the "Solution" section that this problem is most likely
 better solved via a stored function. Indeed, the idea for this recipe
-came from a function. As a matter of fact, this recipe is an adaptation
-of a function called TO_BASE, written by Tom Kyte of Oracle Corporation.
+came from a function. As a matter of fact, this recipe is an adaptation
+of a function called TO_BASE, written by Tom Kyte of Oracle Corporation.
 Like other recipes in this book that you may decide not to use, even if
 you do not use this recipe, it does a nice job of showing of some of the
 features of the MODEL clause such as iteration and array access of rows.
@@ -1276,7 +1275,7 @@ START_VAL HEX BIN NUM
 
 START_VAL represents the number you want to convert to binary, which in
 this case is 2. The value for BIN is the result of a substring operation
-on *0123456789ABCDEF* (HEX, in the original solution). The value for NUM
+on *0123456789ABCDEF* (HEX, in the original solution). The value for NUM
 is the test that will determine when you exit the loop.
 
 As you can see from the preceding result set, the first time through the
@@ -1357,7 +1356,7 @@ ORIG_VAL NUM BIN
 
 2 0 10
 
-**14.8 Pivoting a Ranked Result Set**
+14.8 Pivoting a Ranked Result Set
 
 **Problem**
 
@@ -1596,7 +1595,7 @@ GRP, which indicates the group each employee is in (based on SAL); and
 finally GRP_RANK, which is a ranking (based on SAL) within their GRP.
 
 At this point, perform a traditional pivot on ENAME while using the
-Oracle concatenation operator \|\| to append the SAL. The function RPAD
+Oracle concatenation operator \|\| to append the SAL. The function RPAD
 ensures that the numeric values in parentheses line up nicely. Finally,
 use GROUP BY on GRP_RNK to ensure you show each employee in the result
 set. The final result set is shown here:
@@ -1679,7 +1678,7 @@ JAMES (950)
 SMITH (800)
 
 If you examine the queries in all of the steps, you'll notice that table
-EMP is accessed exactly once. One of the remarkable things about window
+EMP is accessed exactly once. One of the remarkable things about window
 functions is how much work you can do in just one pass through your
 data. There's no need for self-joins or temp tables; just get the rows
 you need and then let the window functions do the rest. Only in inline
@@ -1688,7 +1687,7 @@ massaging the result set to look the way you want. Consider what all
 this means for performance if you can create this type of report with a
 single table access. Pretty cool.
 
-**14.9 Adding a Column Header into a Double Pivoted Result Set**
+14.9 Adding a Column Header into a Double Pivoted Result Set
 
 **Problem**
 
@@ -1809,7 +1808,7 @@ stack 'n' pivot (union then pivot) with an added twist: the DEPTNO must
 precede the ENAME for each employee returned. The technique here uses a
 Cartesian product to generate an extra row for each DEPTNO, so you have
 the required rows necessary to show all employees, plus room for the
-DEPTNO. The solution uses Oracle syntax, but since DB2 supports window
+DEPTNO. The solution uses Oracle syntax, but since DB2 supports window
 functions that can compute moving windows (the framing clause),
 converting this solution to work for DB2 is trivial. Because the IT\_
 RESEARCH and IT_APPS tables exist only for this recipe, their table
@@ -2729,7 +2728,7 @@ MARGARITO
 
 GUINN
 
-**14.10 Converting a Scalar Subquery to a Composite Subquery in Oracle**
+14.10 Converting a Scalar Subquery to a Composite Subquery in Oracle
 
 **Problem**
 
@@ -2850,7 +2849,7 @@ DEPTNO ENAME DNAME LOC TODAY
 The key to the solution is to use the object's constructor function (by
 default the constructor function has the same name as the object).
 Because the object itself is a single scalar value, it does not violate
-the scalar subquery rule, as you can see from the following:
+the scalar subquery rule, as you can see from the following:
 
 **select e.deptno,**
 
@@ -2910,7 +2909,7 @@ to name your inline views. In this particular case, however, you do need
 to name your inline view. Otherwise, you will not be able to reference
 the object's attributes.
 
-**14.11 Parsing Serialized Data into Rows**
+14.11 Parsing Serialized Data into Rows
 
 **Problem**
 
@@ -3336,7 +3335,7 @@ willie
 
 flanders
 
-**14.12 Calculating Percent Relative to Total**
+14.12 Calculating Percent Relative to Total
 
 **Problem**
 
@@ -3372,8 +3371,9 @@ perspective what that 17% means.
 
 Only Oracle enables a decent solution to this problem, which involves
 using the built-in function RATIO_TO_REPORT. To calculate percentages of
-the whole for other databases, you can use division as shown in [[Recipe
-7.11]{.underline}](mhtml:file://C:\Users\Buff%20Panda\OneDrive\Documents\SQL%20code\experrt%20tsql-windows-2019\14.%20Odds%20’n’%20Ends%20_%20SQL%20Cookbook,%202nd%20Edition.mhtml!https://learning.oreilly.com/library/view/sql-cookbook-2nd/9781492077435/ch07.html#sqlckbk-CHP-7-SECT-11):
+the whole for other databases, you can use division as shown
+in [**[Recipe
+7.11]{.underline}**](https://learning.oreilly.com/library/view/sql-cookbook-2nd/9781492077435/ch07.html#sqlckbk-CHP-7-SECT-11):
 
 1 select job,num_emps,sum(round(pct)) pct_of_all_salaries
 
@@ -3394,7 +3394,7 @@ the whole for other databases, you can use division as shown in [[Recipe
 **Discussion**
 
 The first step is to use the window function COUNT OVER to return the
-number of employees per JOB. Then use RATIO_TO_REPORT to return the
+number of employees per JOB. Then use RATIO_TO_REPORT to return the
 percentage each salary counts against the total (the value is returned
 in decimal):
 
@@ -3474,7 +3474,7 @@ SALESMAN 4 19
 
 PRESIDENT 1 17
 
-**14.13 Testing for Existence of a Value Within a Group**
+14.13 Testing for Existence of a Value Within a Group
 
 **Problem**
 
@@ -3695,7 +3695,7 @@ LAST_TEST
 Now that you have determined for which period the student has passed a
 test and what the latest test date for each period is, the last step is
 simply a matter of applying some formatting magic to make the result set
-look nice. The ultimate solution uses Oracle's DECODE function (CASE
+look nice. The ultimate solution uses Oracle's DECODE function (CASE
 supporters, eat your hearts out) to create the METREQ and IN_PROGRESS
 columns. Use the LPAD function to right justify the values for METREQ:
 
@@ -3747,17 +3747,3 @@ STUDENT_ID TEST_ID GRADE_ID PERIOD_ID TEST_DATE METREQ IN_PROGRESS
 1 5 2 2 01-JUN-2020 - 0
 
 1 6 2 2 01-JUL-2020 - 1
-
-**14.14 Summing Up**
-
-SQL is more powerful than many credit it. Throughout this book we have
-tried to challenge you to see more applications than are typically
-noted. In this chapter, we've headed straight for the edge cases and
-tried to show just how you can push SQL, both with standard features and
-with certain vendor-specific features.
-
-table of contentssearch
-
-Settings
-
-Table of contents collapsed
